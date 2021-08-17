@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     let logoImageView       = UIImageView()
     let usernameTextField   = GitFollowersTextField()
     let callToActionButton  = GitFollowersButton(backgroundColor: .systemGreen, title: "Get Followers")
+    private let padding: CGFloat = 50
     
     var isUsernameEntered: Bool {
         return !usernameTextField.text!.isEmpty
@@ -37,7 +38,7 @@ class SearchViewController: UIViewController {
     }
     
     @objc func pushFollowerListViewController() {
-        guard isUsernameEntered else { presentGitFollowersAlertOnMainThread(title: "Empty Username", message: "Please enter username. We need to know who to look for", buttonTitle: "Ok")
+        guard isUsernameEntered else {  presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter username. We need to know who to look for", buttonTitle: "Ok")
             return
             
         }
@@ -66,9 +67,9 @@ class SearchViewController: UIViewController {
      
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
+            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            usernameTextField.heightAnchor.constraint(equalToConstant: padding)
         ])
     }
     
@@ -77,10 +78,10 @@ class SearchViewController: UIViewController {
      callToActionButton.addTarget(self, action: #selector(pushFollowerListViewController), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            callToActionButton.heightAnchor.constraint(equalToConstant: 50)
+            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+            callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            callToActionButton.heightAnchor.constraint(equalToConstant: padding)
         ])
     }
 }

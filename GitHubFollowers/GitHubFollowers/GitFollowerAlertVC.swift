@@ -42,15 +42,16 @@ class GitFollowerAlertVC: UIViewController {
     
     func configureContainerView() {
         view.addSubview(containerView)
-        containerView.layer.cornerRadius = 16
-        containerView.layer.borderWidth = 2
-        containerView.layer.borderColor = UIColor.white.cgColor
+        containerView.backgroundColor       = .systemBackground
+        containerView.layer.cornerRadius    = 16
+        containerView.layer.borderWidth     = 2
+        containerView.layer.borderColor     = UIColor.white.cgColor
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            containerView.widthAnchor.constraint(equalToConstant:  280),
+            containerView.widthAnchor.constraint(equalToConstant: 280),
             containerView.heightAnchor.constraint(equalToConstant: 220)
         ])
     }
@@ -59,13 +60,11 @@ class GitFollowerAlertVC: UIViewController {
         containerView.addSubview(titleLabel)
         titleLabel.text = alertTitle ?? "Something went wrong"
         
-        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
             titleLabel.heightAnchor.constraint(equalToConstant: 28)
-        
         ])
     }
     
@@ -79,14 +78,13 @@ class GitFollowerAlertVC: UIViewController {
             actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
             actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
-        
         ])
     }
     
     func configureMessageLabel() {
         containerView.addSubview(messageLabel)
-        messageLabel.text = message ?? "Unable to complete your request"
-        messageLabel.numberOfLines = 4
+        messageLabel.text           = message ?? "Unable to complete request"
+        messageLabel.numberOfLines  = 4
         
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
