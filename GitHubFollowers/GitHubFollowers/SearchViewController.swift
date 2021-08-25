@@ -10,9 +10,9 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let logoImageView       = UIImageView()
-    let usernameTextField   = GitFollowersTextField()
-    let callToActionButton  = GitFollowersButton(backgroundColor: .systemGreen, title: "Get Followers")
+    let logoImageView = UIImageView()
+    let usernameTextField = GitFollowersTextField()
+    let callToActionButton = GitFollowersButton(backgroundColor: .systemGreen, title: "Get Followers")
     private let padding: CGFloat = 50
     
     var isUsernameEntered: Bool {
